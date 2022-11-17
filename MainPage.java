@@ -3,9 +3,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
-class simple extends JFrame{
+class Simple extends JFrame{
 	JLabel jl,jl1,jl2,jl3,jl4;
-simple(){
+Simple(){
 	setSize(500, 500);
 	
 	
@@ -130,7 +130,7 @@ class EncryptDecrypt2{
 	}
 }
 
-class xor extends JFrame{
+class Xor extends JFrame{
 	JLabel jl,jl1,jl2,jl3,jl4;
 	JTextField jt,jt1;
 	char []key;
@@ -142,7 +142,7 @@ class xor extends JFrame{
 	char []decval;
 	char []encval;
 	int len;
-	xor(){
+	Xor(){
 	
 	jl2=new JLabel("Encryption & Decryption");
 	jl2.setBounds(50,0,500,50);
@@ -235,10 +235,11 @@ JOptionPane.showMessageDialog(null,"Error");
 	setVisible(true);
 	}
 }
-class main extends JFrame{
+class MainPg extends JFrame{
 	JLabel jl1;
 	JRadioButton jr1,jr2;
-	main(){
+	ButtonGroup bgrp=new ButtonGroup();
+	MainPg(){
 		jl1=new JLabel("ENCRYPTION AND DECRYPTION");
 		add(jl1);
 		jl1.setFont(new Font("Arial",Font.BOLD,20));
@@ -251,7 +252,7 @@ class main extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				new simple();
+				new Simple();
 				try {
 					JOptionPane.showMessageDialog(null,"Success");
 	    }
@@ -264,12 +265,20 @@ class main extends JFrame{
 		jr2=new JRadioButton("XOR CIPHER TEXT");
 		jr2.setBounds(300, 120, 250, 50);
 		add(jr2);
+		bgrp.add(jr1);
+		bgrp.add(jr2);
 		jr2.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				new xor();
+				new Xor();
+				try {
+					JOptionPane.showMessageDialog(null,"Success");
+	    }
+	 catch(Exception ae){
+	            JOptionPane.showMessageDialog(null,"Error");
+	    }
 			}
 		});
 		setSize(500,500);
@@ -283,7 +292,7 @@ public class MainPage {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-new main();
+new MainPg();
 	}
 
 }
